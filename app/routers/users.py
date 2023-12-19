@@ -9,7 +9,9 @@ from app.models.users import User as UserModel
 
 router = APIRouter()
 
-
+@router.get("/api")
+async def home():
+    return {"message": "home"}
 
 @router.get("/users", response_model=List[User])
 async def get_users(db:Session = Depends(get_db)):
